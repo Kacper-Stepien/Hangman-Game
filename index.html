@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css">
+    <title>Hangman</title>
+</head>
+
+<body>
+    <header>
+        <h1>Hangman</h1>
+        <p>Guess the word</p>
+    </header>
+    <main>
+        <svg height="280" width="200" class="figure-container" stroke="black" stroke-width="10">
+            <!-- hanger -->
+            <line x1="60" y1="20" x2="140" y2="20" />
+            <line x1="60" y1="20" x2="60" y2="260" />
+            <line x1="20" y1="260" x2="100" y2="260" />
+            <line x1="60" y1="40" x2="90" y2="20" />
+            <line x1="140" y1="20" x2="140" y2="60" />
+
+            <!-- head -->
+            <circle cx="140" cy="80" r="20" class="figure-part" />
+
+            <!-- Body -->
+            <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
+
+            <!-- Arms -->
+            <line x1="140" y1="120" x2="110" y2="100" class="figure-part" />
+            <line x1="140" y1="120" x2="170" y2="100" class="figure-part" />
+
+            <!-- Legs -->
+            <line x1="140" y1="150" x2="110" y2="190" class="figure-part" />
+            <line x1="140" y1="150" x2="170" y2="190" class="figure-part" />
+
+        </svg>
+        <div class="wrong-letters-container">
+            <h3>Wrong letters:</h3>
+            <div id="wrong-letters">s,d,f</div>
+        </div>
+
+        <div class="word" id="word">
+            <div class="letter">p</div>
+            <div class="letter">r</div>
+            <div class="letter">o</div>
+            <div class="letter">g</div>
+            <div class="letter">r</div>
+            <div class="letter">a</div>
+            <div class="letter">m</div>
+            <div class="letter">m</div>
+            <div class="letter">i</div>
+            <div class="letter">n</div>
+            <div class="letter">g</div>
+        </div>
+    </main>
+</body>

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@100;300;400;600&display=swap');
+
+:root {
+    --body-color: #e5e5e5;
+    --font-color: #212529;
+    --font-family: 'Sofia Sans', sans-serif;
+    --stroke-color: #343a40;
+    --stroke-human-color: #ee6c4d;
+    --font-underline-color: #dc2f02;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.figure-container {
+    stroke: var(--stroke-color);
+    stroke-width: 8px;
+    stroke-linecap: round;
+}
+
+.figure-part {
+    stroke: var(--stroke-human-color);
+    fill: var(--stroke-human-color);
+
+}
+
+.wrong-letters-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    margin-right: 2rem;
+}
+
+.word {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 3rem;
+}
+
+.letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--font-underline-color);
+    margin: 0 10px 0 0;
+    width: 22px;
+}
