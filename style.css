@@ -22,7 +22,9 @@ body {
     color: var(--font-color);
     font-family: var(--font-family);
     height: 100vh;
+    overflow: hidden;
 }
+
 
 /* Header */
 header {
@@ -92,4 +94,20 @@ h3 {
     border-bottom: 2px solid var(--font-underline-color);
     margin: 0 10px 0 0;
     width: 22px;
+}
+
+/* Wrong letter modal */
+.wrong-letter-popup {
+    padding: 1.4rem;
+    background-color: rgb(51, 57, 64);
+    color: var(--stroke-human-color);
+    font-weight: bold;
+    position: absolute;
+    bottom: 2%;
+    transition: all 0.4s ease-in-out;
+}
+
+.hidden {
+    opacity: 0.4;
+    bottom: -10%;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <title>Hangman</title>
 </head>
 
@@ -44,7 +45,9 @@
         </div>
 
         <div class="word" id="word">
-            <div class="letter">p</div>
+            <!-- PLACE for a letters of word-->
+
+            <!-- <div class="letter">p</div>
             <div class="letter">r</div>
             <div class="letter">o</div>
             <div class="letter">g</div>
@@ -54,7 +57,10 @@
             <div class="letter">m</div>
             <div class="letter">i</div>
             <div class="letter">n</div>
-            <div class="letter">g</div>
+            <div class="letter">g</div> -->
+        </div>
+        <div class="wrong-letter-popup hidden" id="wrong-letter-popup">
+            <p>You have already entered that letter</p>
         </div>
     </main>
 </body>
