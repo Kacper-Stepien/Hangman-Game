@@ -7,6 +7,8 @@
     --stroke-color: #343a40;
     --stroke-human-color: #ee6c4d;
     --font-underline-color: #dc2f02;
+    --win-color: #40c057;
+    --lose-color: #f03e3e;
 }
 
 *,
@@ -19,10 +21,10 @@
 
 body {
     background-color: var(--body-color);
-    color: var(--font-color);
     font-family: var(--font-family);
+    font-size: 62.5%;
+    color: var(--font-color);
     height: 100vh;
-    overflow: hidden;
 }
 
 
@@ -32,18 +34,17 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1.6rem;
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 3px;
 }
 
 p {
     font-size: 1.2rem;
-    font-weight: 300;
 }
 
 /* Main */
@@ -52,7 +53,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 .figure-container {
@@ -65,6 +66,10 @@ main {
     stroke: var(--stroke-human-color);
     fill: var(--stroke-human-color);
 
+}
+
+.figure-part__hidden {
+    opacity: 0;
 }
 
 .wrong-letters-container {
@@ -83,8 +88,10 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     font-size: 2rem;
     margin-top: 3rem;
+    padding: 1rem;
 }
 
 .letter {
@@ -93,21 +100,119 @@ h3 {
     justify-content: center;
     border-bottom: 2px solid var(--font-underline-color);
     margin: 0 10px 0 0;
-    width: 22px;
+    width: 2rem;
 }
 
 /* Wrong letter modal */
 .wrong-letter-popup {
-    padding: 1.4rem;
+    padding: 1rem;
     background-color: rgb(51, 57, 64);
     color: var(--stroke-human-color);
+    border: 10px soild var(--stroke-human-color);
+    border: 5px;
     font-weight: bold;
+    text-align: center;
     position: absolute;
-    bottom: 2%;
+    bottom: 3%;
+    left: 50%;
+    width: 70vw;
+    transform: translateX(-50%);
     transition: all 0.4s ease-in-out;
 }
 
 .hidden {
-    opacity: 0.4;
-    bottom: -10%;
+    opacity: 0;
+    left: -10%;
+
+}
+
+.modal {
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2.4rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-wrap: normal;
+    min-width: 60%;
+    min-height: 60%;
+}
+
+.modal-win {
+    background-color: var(--win-color);
+}
+
+.modal-lose {
+    background-color: var(--lose-color);
+    color: #e5e5e5;
+}
+
+.modal h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.modal p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 1rem;
+}
+
+.final-word {
+    font-weight: bold;
+}
+
+.play-again-btn {
+    background-color: var(--body-color);
+    color: var(--font-color);
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    margin-top: 2.4rem;
+}
+
+.play-again-btn:hover {
+    background-color: var(--font-color);
+    color: var(--body-color);
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hidden-modal {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 55%;
+    }
+
+    main {
+        margin-top: 2rem;
+    }
+
+    .word {
+        margin-top: 2rem;
+    }
+
+    .modal {
+        width: 90%;
+    }
 }

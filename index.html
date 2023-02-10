@@ -25,23 +25,24 @@
             <line x1="140" y1="20" x2="140" y2="60" />
 
             <!-- head -->
-            <circle cx="140" cy="80" r="20" class="figure-part" />
+            <circle cx="140" cy="80" r="20" class="figure-part figure-part__hidden" />
 
             <!-- Body -->
-            <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
+            <line x1="140" y1="90" x2="140" y2="150" class="figure-part figure-part__hidden" />
 
             <!-- Arms -->
-            <line x1="140" y1="120" x2="110" y2="100" class="figure-part" />
-            <line x1="140" y1="120" x2="170" y2="100" class="figure-part" />
+            <line x1="140" y1="120" x2="110" y2="100" class="figure-part figure-part__hidden" />
+            <line x1="140" y1="120" x2="170" y2="100" class="figure-part figure-part__hidden" />
 
             <!-- Legs -->
-            <line x1="140" y1="150" x2="110" y2="190" class="figure-part" />
-            <line x1="140" y1="150" x2="170" y2="190" class="figure-part" />
+            <line x1="140" y1="150" x2="110" y2="190" class="figure-part figure-part__hidden" />
+            <line x1="140" y1="150" x2="170" y2="190" class="figure-part figure-part__hidden" />
 
         </svg>
+
         <div class="wrong-letters-container">
             <h3>Wrong letters:</h3>
-            <div id="wrong-letters">s,d,f</div>
+            <div id="wrong-letters"></div>
         </div>
 
         <div class="word" id="word">
@@ -59,8 +60,24 @@
             <div class="letter">n</div>
             <div class="letter">g</div> -->
         </div>
+
         <div class="wrong-letter-popup hidden" id="wrong-letter-popup">
-            <p>You have already entered that letter</p>
+
         </div>
+
+        <div class="modal modal-win hidden-modal" id="modal-win">
+            <h2>You won! 😁</h2>
+            <button class="play-again-btn">Play again</button>
+        </div>
+
+        <div class="modal modal-lose hidden-modal" id="modal-lose">
+            <h2>You lost! 😥</h2>
+            <p>The word was: <span class="final-word" id="final-word"></span></p>
+            <button class="play-again-btn">Play again</button>
+        </div>
+
+        <div class="overlay hidden-modal" id="overlay"></div>
+
     </main>
+
 </body>
