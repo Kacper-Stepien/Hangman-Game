@@ -51,7 +51,7 @@ p {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 4rem;
 }
@@ -199,7 +199,9 @@ h3 {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+
+
+@media screen and (max-width: 800px) {
     body {
         font-size: 55%;
     }
@@ -212,7 +214,19 @@ h3 {
         margin-top: 2rem;
     }
 
+    .wrong-letter-popup {
+        bottom: 10%;
+    }
+
     .modal {
         width: 90%;
+    }
+}
+
+@media screen and (min-height: 800px) {
+    .simple-keyboard {
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 }

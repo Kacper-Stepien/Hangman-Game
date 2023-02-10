@@ -1,3 +1,4 @@
+const main = document.getElementById("main");
 const wrongLetters = document.getElementById('wrong-letters');
 const wordToDisplayed = document.getElementById('word');
 const figureParts = document.querySelectorAll('.figure-part');
@@ -9,6 +10,7 @@ const loseModal = document.getElementById('modal-lose');
 const finalWord = document.getElementById('final-word');
 const playAgainBtns = document.querySelectorAll('.play-again-btn');
 const overlay = document.getElementById('overlay');
+const keyboard = document.querySelector('.simple-keyboard');
 
 const words = [
     "programming", "algorithms", "javascript", "python", "java", "c++", "c#", "php", "ruby",
@@ -74,6 +76,8 @@ class Game {
     displayNextFigurePart() {
         let indexOfFigurePart = 6 - this.attemptsRemained;
         figureParts[indexOfFigurePart].classList.remove('figure-part__hidden');
+        console.log(figureParts[indexOfFigurePart]);
+        console.log("NAstepny element figury");
     }
     displayPopup(letter) {
         popup.classList.remove('hidden');
@@ -119,16 +123,15 @@ class Game {
     }
 }
 
-
 // Game initialization
-let game = new Game();
+const game = new Game();
 game.displayWord();
 
-document.addEventListener("keydown", function (e) {
+function gameHandler(guessedLetter) {
     if (!game.gameOn) {
         return;
     }
-    let guessedLetter = (e.key).toLowerCase();
+    // let guessedLetter = (e.key).toLowerCase();
     if (!game.availableLetters.includes(guessedLetter)) {
         return;
     }
@@ -158,6 +161,11 @@ document.addEventListener("keydown", function (e) {
             setTimeout(() => { game.displayLoseModal(); }, 500);
         }
     }
+};
+
+document.addEventListener("keydown", function (e) {
+    let guessedLetter = (e.key).toLowerCase();
+    gameHandler(guessedLetter);
 
 });
 
@@ -166,3 +174,56 @@ playAgainBtns.forEach(btn => {
         game.newGame();
     });
 });
+
+const desktopPlatforms = ['Win32', 'Win64', 'Windows', 'MacIntel'];
+
+if (!desktopPlatforms.includes(navigator.platform) || screen.width < 800) {
+    keyboard.style.display = 'block';
+}
+else {
+    keyboard.style.display = 'none';
+}
+
+const Keyboard = window.SimpleKeyboard.default;
+
+const myKeyboard = new Keyboard({
+    onKeyPress: button => onKeyPress(button),
+    mergeDisplay: true,
+    layoutName: "default",
+    layout: {
+        default: [
+            "q w e r t y u i o p",
+            "a s d f g h j k l",
+            "{shift} z x c v b n m {backspace}",
+            "{numbers} {space} {ent}"
+        ],
+        shift: [
+            "Q W E R T Y U I O P",
+            "A S D F G H J K L",
+            "{shift} Z X C V B N M {backspace}",
+            "{numbers} {space} {ent}"
+        ],
+        numbers: ["1 2 3", "4 5 6", "7 8 9", "{abc} 0 {backspace}"]
+    },
+    display: {
+        "{numbers}": "123",
+        "{ent}": "return",
+        "{escape}": "esc ⎋",
+        "{tab}": "tab ⇥",
+        "{backspace}": "⌫",
+        "{capslock}": "caps lock ⇪",
+        "{shift}": "⇧",
+        "{controlleft}": "ctrl ⌃",
+        "{controlright}": "ctrl ⌃",
+        "{altleft}": "alt ⌥",
+        "{altright}": "alt ⌥",
+        "{metaleft}": "cmd ⌘",
+        "{metaright}": "cmd ⌘",
+        "{abc}": "ABC"
+    }
+});
+
+function onKeyPress(button) {
+    gameHandler(button);
+}
+
