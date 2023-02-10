@@ -14,3 +14,4 @@ https://kacper-stepien.github.io/Hangman-Game/
 - Display of the guessed word.
 - Count of remaining attempts.
 - Display of the hangman as the game progresses.
+- Support for mobile devices by creating virtual keyboard
