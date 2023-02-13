@@ -121,7 +121,7 @@ h3 {
 }
 
 .hidden {
-    opacity: 0;
+    visibility: hidden;
     left: -10%;
 
 }
